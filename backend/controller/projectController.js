@@ -8,16 +8,16 @@ const createProject = async(req, res)=>{
         if(exists.length > 0){
             return res.status(409).json({message:'Record exists'});
         }else{
-            const creatorSql = `INSERT INTO project (projectName, createdBy) VALUES (?,?)`;
-            db.query(creatorSql, [projectName, res.locals.id]);
+            const creatorSql = `INSERT INTO project (projectName, createdBy, orgId) VALUES (?,?,?)`;
+            db.query(creatorSql, [projectName, res.locals.id, res.locals.orgId]);
             return res.status(200).json({message:'Project Created'});
         }
     });
 }
 
 const getAllProjects = async(req, res) => {
-    const finderSql = `SELECT projectName FROM project`;
-    db.query(finderSql, null, (err, val)=>{
+    const finderSql = `SELECT id, projectName FROM project WHERE createdBy = ?`;
+    db.query(finderSql, [res.locals.id], (err, val)=>{
         if(val.length > 0){
             return res.status(200).json(val);
         }else{
@@ -51,8 +51,20 @@ const deleteProject = (req, res)=>{
     });
 }
 
+const getProjectById = (req, res)=>{
+    const projectId = req.params.id;
+    const projectGetterSql = `SELECT * FROM project WHERE id = ?`;
+    db.query(projectGetterSql, [projectId], (err, val)=>{
+        if(val.length > 0){
+            return res.status(200).json(val);
+        }else{
+            return res.status(404).json('No Projects Found');
+        }
+    })
+}
+
 
 
 module.exports={
-    createProject,getAllProjects,updateProject, deleteProject,
+    createProject,getAllProjects,updateProject, deleteProject,getProjectById,
 }
