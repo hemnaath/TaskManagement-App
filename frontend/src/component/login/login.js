@@ -59,7 +59,7 @@ const Login = () =>{
                     <p className="text-white text-xs">
                       welcome back! Sign in with your email / username and password below
                     </p>
-                    <div className="space-y-2 mt-3">
+                    <div className="space-y-2 mt-3 text-left">
                       <div>
                         <label className="text-white text-xs text-nowrap">
                           E-mail / User name<span className="text-red-700">*</span>

@@ -61,7 +61,7 @@ const Register = () =>{
                     <p className="text-white text-xs">
                       Create an account for faster and easier checkout.
                     </p>
-                    <div className="space-y-2 mt-3">
+                    <div className="space-y-2 mt-3 text-left">
                       <div>
                         <div>
                           <label className="text-white text-xs">
