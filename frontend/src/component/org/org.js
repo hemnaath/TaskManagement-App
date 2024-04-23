@@ -24,8 +24,7 @@ const Org = ()=>{
         <form onSubmit={orgEntry}>
           <div className="flex min-h-full h-screen">
             <div className="flex flex-1 flex-col w-1/3 justify-center border">
-              <div className="mx-auto my-10 lg:w-1/4 2xl:w-3/6 lg:w-100 bg-OBlue border rounded-2xl p-5 space-y-3">
-                <div className=" ">
+              <div className="mx-auto my-10 lg:w-1/4 2xl:w-1/6 lg:w-100 bg-OBlue border rounded-2xl p-5 space-y-3 text-left">
                   <div>
                     <label className="text-white text-xs text-nowrap">
                       Organization Name<span className="text-red-700">*</span>
@@ -37,10 +36,9 @@ const Org = ()=>{
                       value={orgName}
                       onChange={e=>orgNameUpdate(e.target.value)}
                       className="border rounded-lg  mt-2 placeholder-RBlue w-full p-1 placeholder:text-xs px-3  focus:outline-none focus:border-blue-500"
-                      placeholder="RS-Techs"
+                      placeholder="Name"
                     ></input>
                   </div>
-                </div>
       
                 <div>
                   <label className="text-white text-xs text-nowrap">
@@ -48,7 +46,7 @@ const Org = ()=>{
                   </label>
                   <select
                     name="orgType"
-                    className=" w-full p-1 mt-2  px-3 border text-RBlue text-xs rounded-lg"
+                    className=" w-full p-2 mt-2 border text-RBlue text-xs rounded-lg"
                     value={orgType}
                     onChange={e=>orgTypeUpdate(e.target.value)}
                   >
